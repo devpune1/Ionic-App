@@ -1,0 +1,93 @@
+.item-input {
+
+
+width: 500px;
+top: 50px;
+left:400px;
+
+
+}
+.items-divider{
+width:500px;
+  top: 50px;
+  left:400px;
+  align-items: center;
+
+}
+#login{
+left: 150px;
+}
+#register{
+
+left: 150px;
+
+}
+body {
+
+}
+.sample{
+ padding: 15px;
+  margin: 1em 0;
+   min-width: 300px;
+}
+.header .col {
+    background-color:lightgrey;
+}
+
+.col {
+    border: solid 1px lightgrey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px lightblue;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px lightgrey;
+}
+
+button{
+
+    color: lightgrey;
+}
+
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 100px;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: grey;
+    color: white;
+}
+#remotestorage-widget {
+
+   top    : 300px !important;
+    right  : 15px !important;
+    bottom : 80px !important;
+
+
+
+
+}
+
+ .remotestorage-state-connected {
+        bottom: 40px !important;
+    }

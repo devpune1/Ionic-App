@@ -1,0 +1,110 @@
+
+
+
+
+
+<ion-view view-title="{{navTitle}}" >
+
+
+    <ion-nav-back-button class="button-clear go-back">Back</ion-nav-back-button>
+
+
+  <ion-nav-buttons  side="right">
+                <i class="button-icon ion-person " > {{userName}} </i>
+  </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+  <ion-content class="padding">
+
+    <div class="list" ng-controller = "MainModuleController as main">
+
+         <label align-items= "center" class="item item-input">
+
+         <span class="input-label" >Main Module</span>
+
+         </label>
+
+       <label class="item item-input ">
+         <i class="icon ion-person"></i>
+       <span class="input-label" >User Id :</span>
+
+       <input type="text" placeholder="Enter User ID " ng-model="main.userid">
+       </label>
+
+       <label class="item item-input ">
+         <i class="icon ion-person"></i>
+       <span class="input-label">Password :</span>
+       <input  type="password" placeholder="Enter User Password" ng-model="main.userpassword">
+       </label>
+
+
+
+    <label class="item item-input">
+    <i class="icon ion-locked"></i>
+              <span class="input-label">Website :</span>
+              <input type="text" placeholder="Enter Website" ng-model="main.userwebsite">
+              </label>
+
+
+
+       <label class="item item-input ">
+         <i class="icon ion-email"></i>
+       <span class="input-label">Hint:</span>
+       <input type="text" placeholder="Enter Hint" ng-model="main.userhint">
+       </label>
+
+
+
+<div class="item items-divider">
+
+<button class="button icon icon-right button-calm  " ng-click="addRecord()">Add Record</button>
+<button class="button icon icon-right button-calm " ng-click="displayRecord()">Display Record </button>
+<button class="button icon icon-right button-calm " ng-click="clearRecord()">Clear Record</button>
+<button class="button icon icon-right button-calm " ui-sref="login">Logout</button>
+
+
+</div>
+
+
+    <table data-table id="customers">
+        <thead>
+            <tr>
+                <th> NO.   </th>
+                <th> User ID   </th>
+                <th> User Password  </th>
+                <th> User Website  </th>
+                <th> User Hint     </th>
+                <th> Date     </th>
+                <th> Action  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in records track by $index">
+
+                <td>{{ $index + 1 }}</td>
+                <td>{{ record.userid }}</td>
+
+                <td>{{record.userpassword }}</td>
+
+                <td>{{ record.userwebsite }}</td>
+
+                <td>{{ record.userhint }}</td>
+
+                  <td>{{ record.date }}</td>
+
+<td>    <button class="button ion-android-delete"   data-ng-click="deleteRecord(record.userdate)" >
+  <button class="button ion-edit" data-ng-click="openModal(record)" ></button></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+
+  </div>
+
+
+
+  </ion-content>
+</ion-view>

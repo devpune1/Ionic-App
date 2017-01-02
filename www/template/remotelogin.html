@@ -1,0 +1,43 @@
+
+<ion-view view-title="Remote Login Page">
+  <ion-content class="padding">
+
+
+
+
+    <div class="row">
+
+
+    <div class="list" ng-controller ="RemoteController as remoteinput">
+
+         <label class=" item item-input">
+
+         <span class=" input-label">Remote Login Page</span>
+
+         </label>
+
+       <label class=" item item-input item-stacked-label">
+         <i class="icon ion-person"></i>
+       <span class=" input-label">Remote User ID :</span>
+
+       <input type="text" name = "userid" placeholder="Enter User Id " ng-model =" remoteinput.userid">
+
+       </label>
+
+
+
+    <div class="item items-divider">
+
+      <a class="button icon icon-right button-block button-calm" ng-click="connect()"  >Connect </a>
+  <a class="button icon icon-right button-block button-calm" ui-serf="login" >Disconnect</a>
+
+    </div>
+
+    </div>
+
+  </div>
+
+
+
+  </ion-content>
+</ion-view>

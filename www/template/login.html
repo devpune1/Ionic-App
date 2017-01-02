@@ -1,0 +1,52 @@
+
+<ion-view view-title="Login Page">
+  <ion-content class="padding">
+
+
+
+
+    <div class="row">
+
+
+    <div class="list" ng-controller ="LoginController as logininput">
+
+         <label class=" item item-input">
+
+         <span class=" input-label">Login Page</span>
+
+         </label>
+
+       <label class=" item item-input item-stacked-label">
+         <i class="icon ion-person"></i>
+       <span class=" input-label">User ID :</span>
+
+       <input type="text" name = "userid" placeholder="Enter User Id " ng-model =" logininput.userid">
+       </label>
+
+       <label class="item item-input item-stacked-label" >
+         <i class="icon ion-locked"></i>
+       <span class="input-label">User Password :</span>
+       <input type="password" name="userpassword" ng-model =" logininput.userpassword" placeholder="Enter User Password">
+
+
+
+       </label>
+
+
+    <div class="item items-divider">
+
+      <a class="button icon icon-right button-block button-calm"  ng-click="login()">Login</a>
+
+          <a class="button icon icon-right button-block button-calm" ui-sref="registration">Register</a>
+          <a class="button icon icon-right button-block button-calm" ui-sref="remotelogin">Remote Login</a>
+
+    </div>
+
+    </div>
+
+  </div>
+
+
+
+  </ion-content>
+</ion-view>

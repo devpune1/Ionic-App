@@ -1,0 +1,62 @@
+<html ng-app="ionicApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Ionic List Directive with infinite scrolling</title>
+
+  <link href="http://code.ionicframework.com/0.9.27/css/ionic.min.css" rel="stylesheet">
+  <script src="http://code.ionicframework.com/0.9.27/js/ionic.bundle.js"></script>
+</head>
+
+<body>
+
+
+  <ion-pane ng-controller="AppCtrl">
+    <ion-header-bar class="bar-positive" title="Contacts">
+      <h1 class="title">Modal</h1>
+      <div class="buttons">
+        <button class="button" ng-click="modal.show()">Modal</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="has-header">
+      <ion-list>
+
+        <div ng-repeat='user in users track by $index' >
+          <div class="col">
+            <div class="col profile-image" ng-click="openModal(user)">
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS5_udYF3yjlgFuhNhD2EaZLrsF1Hubyv7q2q2nrud1KyNi14OPnw7m-A" class="connect_image" />
+              <br />{{user.name}}
+              <br />
+              <span class="connect_subject">{{user.about}}</span>
+            </div>
+          </div>
+        </div>
+
+      </ion-list>
+    </ion-content>
+  </ion-pane>
+
+  <script id="modal.html" type="text/ng-template">
+    <div class="modal" ng-controller="ModalCtrl">
+      <header class="bar bar-header bar-assertive">
+        <h1 class="title">{{user.name}}</h1>
+      </header>
+      <ion-content class="has-header">
+        <h1>Name : {{user.name}}</h1>
+        <div class="padding">
+          <div class="list">
+
+
+            <button class="button button-block button-positive" ng-click="hideModal()">Hide Modal</button>
+
+
+          </div>
+      </ion-content>
+      </div>
+  </script>
+
+
+</body>
+
+</html>

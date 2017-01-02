@@ -1,0 +1,240 @@
+
+<ion-view title="Settings" ng-controller="aboutCtrl">
+
+  <ion-nav-buttons side="left">
+
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenuLeft()"></button>
+  </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+
+          <i class="icon ion-person"> {{userName}} </i>
+
+        </ion-nav-buttons>
+
+   <h1 style="text-align: center;">Module Page</h1>
+
+
+   <ion-side-menus>
+
+     <ion-pane ion-side-menu-content>
+
+
+      <ion-nav-view name="menuContent" animation="slide-left-right">
+
+        <ion-view view-title="Setting" >
+
+
+            <ion-content padding="true">
+
+
+              <ion-tabs class="tabs-positive tabs-icon-top"  ng-controller="SettingCtrl">
+
+
+                <ion-tab title="Change Profile"icon-on="ion-ios-gear"  icon-off="ion-ios-gear-outline">
+
+                                <div class="list " ng-controller="ChangeProfile as profile">
+
+
+
+
+                                  <div class="item item-divider">Change Full  Name</div>
+
+                                  <div class="item">
+
+                                    <label > User Full Name :
+
+                                      <input type="text" placeholder="Enter Full Name " ng-model="profile.fullname">
+
+                                    </label>
+
+
+                                  </div>
+
+
+
+
+
+                                   <div class="item item-divider">Change Id</div>
+
+                                   <div class="item">
+
+                                        <label > User Id :
+
+                                            <input type="text" placeholder="Enter User ID " ng-model="profile.userid">
+
+                                      </label>
+
+
+                                   </div>
+
+
+
+                                     <div class="item item-divider">Change Email</div>
+
+                                     <div class="item">
+                                       <label > Email:
+
+                                       <input type="text" placeholder="Enter Email Address " ng-model="profile.email">
+
+
+                                       </label>
+
+
+                                     </div>
+
+
+
+                                      <div class="item item-divider">Change Mobile No</div>
+                                      <div class="item">
+
+                                        <label >Mobile  No :
+
+                                        <input type="text" placeholder="Enter Mobile No  " ng-model="profile.mobile">
+
+
+                                        </label>
+
+
+                                      </div>
+                                      <div class="item">
+                                                <button class="button   icon icon-right button-calm  " ng-click="updateProfile()">Update</button>
+                                      </div>
+                                      <div class="item">
+
+                                      </div>
+
+
+
+                                </div>
+
+
+
+                </ion-tab>
+
+                <ion-tab title="Change Password" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+
+                            <div class ="list"  ng-controller="ChangePassword as profilepwd">
+                              <form name="changepassword">
+
+
+                              <div class="col">
+                                       <div class="item-input-inset">
+                                         <label class="item-input-wrapper"  ng-class="{ 'has_error' : changepassword.oldpassword.$invalid } ">Old Password :
+                                           <input type="{{ inputType }}"  name="oldpassword" ng-model="profilepwd.oldpassword" placeholder="Enter Old Password"   required>
+                                         </label>
+                                         <button class="button button-calm button-small ion-eye" ng-value="{{btnName}}" ng-click="hidePassword()">
+
+                                         </button>
+
+                                       </div>
+                                       <p style="color :red" ng-show="changepassword.oldpassword.$error.$invalid" class="help-block"> Old Password Required </p>
+
+                                     </div>
+
+                                     <div class="col">
+                                              <div class="item-input-inset">
+                                                <label class="item-input-wrapper"  ng-class="{ 'has_error' : changepassword.newpassword.$invalid && !changepassword.newpassword.$pristine } ">New  Password :
+                                                  <input type="{{ inputType }}" name ="newpassword" ng-model="profilepwd.newpassword" placeholder="Enter New Password" ng-minlength="8" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+                                                </label>
+                                                <button class="button button-calm button-small ion-eye" ng-value="{{btnName}}" ng-click="hidePassword()">
+
+                                                </button>
+
+                                              </div>
+                                              <p style="color :red" ng-show="changepassword.newpassword.$error.minlength" class="help-block">Your password is too short.</p>
+                                              <p ng-show="changepassword.newpassword.$error.pattern && !changepassword.newpassword.$error.minlength" class="help-block">Password must contain one lower and uppercase letter, and one non-alpha character.</p>
+                                              
+                                            </div>
+
+
+                                            <div class="col">
+                                                     <div class="item-input-inset">
+                                                       <label class="item-input-wrapper"  ng-class="{ 'has_error' : changepassword.confirmpassword.$invalid && !changepassword.confirmpassword.$pristine } ">Confirm  Password :
+                                                         <input type="{{ inputType }}" name ="confirmpassword" ng-model="profilepwd.confirmpassword" placeholder="Enter Confirm Password" ng-minlength="8" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+                                                       </label>
+                                                       <button class="button button-calm button-small ion-eye" ng-value="{{btnName}}" ng-click="hidePassword()">
+
+                                                       </button>
+
+                                                     </div>
+                                                      <p style="color :red" ng-show ="profilepwd.newpassword !== profilepwd.confirmpassword" class="help-block">Should Match New Password.</p>
+                                                     <p style="color :red" ng-show="changepassword.confirmpassword.$error.minlength" class="help-block">Your password is too short.</p>
+                                                     <p ng-show="changepassword.confirmpassword.$error.pattern && !changepassword.confirmpassword.$error.minlength" class="help-block">Password must contain one lower and uppercase letter, and one non-alpha character.</p>
+
+
+                                                   </div>
+
+
+
+
+
+
+
+
+                                      <div class="item">
+                                                <button class="button   icon icon-right button-calm  " ng-click="updatePassword()">Update</button>
+                                      </div>
+                                      <div class="item">
+
+                                      </div>
+    </form>
+                                    </div>
+
+
+
+                </ion-tab>
+
+              </ion-tabs>
+
+            </ion-content>
+        </ion-view>
+
+
+      </ion-nav-view>
+
+
+     </ion-pane>
+
+     <ion-side-menu side="left">
+
+       <header class="bar bar-header bar-stable">
+
+         <h1 class="title">List</h1>
+
+       </header>
+       <ion-content class="has-header">
+
+
+         <ion-list>
+           <ion-item nav-clear menu-close href="#/mainmodule">
+            Normal Account
+           </ion-item>
+
+           <ion-item nav-clear menu-close href="#/setting">
+            Setting
+           </ion-item>
+
+           <ion-item nav-clear menu-close href="#/about">
+             About
+           </ion-item>
+           <ion-item nav-clear menu-close href="#/login">
+             Logout
+           </ion-item>
+
+
+         </ion-list>
+
+
+       </ion-content>
+
+
+
+
+     </ion-side-menu>
+
+
+ </ion-side-menus>
+
+
+</ion-view>

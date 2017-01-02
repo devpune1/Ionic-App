@@ -1,0 +1,53 @@
+
+  <ion-modal-view>
+    <ion-header-bar>
+
+  <button class="button button-primary" ng-click="modal.hide()">Cancel</button>
+    </ion-header-bar>
+
+
+    <ion-content class="padding">
+
+      <div class="list" ng-controller="ModalCtrl">
+
+       <label class="item ">
+         <span class="input-label">User Id </span>
+         <input ng-model="user.userid" type="text">
+
+       </label>
+
+
+
+       <label class="item ">
+         <span class="input-label">User Password</span>
+         <input ng-model="user.userpassword" type="text">
+       </label>
+
+
+       <label class="item ">
+         <span class="input-label">User Website</span>
+         <input ng-model="user.userwebsite" type="text">
+       </label>
+
+
+
+       <label class="item ">
+         <span class="input-label">User Hint</span>
+         <input ng-model="user.userhint" type="text">
+       </label>
+
+
+
+
+
+<div class="item ">
+
+<button class="button icon icon-right button-calm  " ng-click ="applyModal(user)" >Save</button>
+<button class="button icon icon-right button-calm " ng-click="hideModal()">cancel</button>
+
+</div>
+</div>
+
+
+    </ion-content>
+  </ion-modal-view>

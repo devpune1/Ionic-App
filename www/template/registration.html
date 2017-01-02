@@ -1,0 +1,118 @@
+<ion-view view-title="Registration Page">
+
+  <ion-content class="padding">
+
+        <div class="list" ng-controller = "RegisterController as user">
+
+        <form name ="registartionForm"  autocomplete="off"  ng-submit = "saveDetails()" >
+
+
+
+
+
+         <label align-items= "center" class="item item-input">
+
+         <span class="input-label" >Registration Page</span>
+
+         </label>
+
+       <label class="item item-input item-stacked-label"  ng-class="{ 'has-errors' : user.fullName.$invalid, 'no-errors' : user.fullName.$valid}">
+
+         <i class="icon ion-person"></i>
+       <span class="input-label" >Full Name :</span>
+       <input type="text" name="fullname" placeholder="Enter User Name " ng-model ="user.fullname" ng-pattern="/^([a-zA-Z]*((\s)))+[a-zA-Z]*/"required>
+       <span ng-show="registartionForm.fullname.$dirty && registartionForm.fullname.$invalid">
+       <span  style="color:red" ng-show="registartionForm.fullname.$error.required">Full Name is required.</span>
+       <span ng-show ="registartionForm.fullname.$error.pattern" class="help-block">Full Name Should accept only string with space</span>
+
+
+       </span>
+
+       </label>
+
+       <label class="item item-input item-stacked-label">
+         <i class="icon ion-person"></i>
+
+       <span class="input-label">User Id :</span>
+       <input  type="text" name="userid" placeholder="Enter User ID" ng-model ="user.userid" required>
+       <span style="color:red" ng-show="registartionForm.userid.$dirty && registartionForm.userid.$invalid">
+       <span ng-show="registartionForm.userid.$error.required">User ID is required.</span>
+
+       </span>
+
+       </label>
+
+       <label class="item item-input item-stacked-label  " ng-class="{ 'has_error' : registartionForm.useremail.$invalid && !registartionForm.useremail.$pristine }">
+         <i class ="icon ion-email"></i>
+       <span class ="input-label">Email :</span>
+       <input type ="email" name="useremail" placeholder="Enter  Email" ng-model ="user.email" required>
+
+       <span style="color:red" ng-show="registartionForm.useremail.$dirty && registartionForm.useremail.$invalid">
+       <span  style="color:red" ng-show="registartionForm.useremail.$error.required">Email is required.</span>
+       <span ng-show="registartionForm.useremail.$error.pattern" class="help-block">Enter validate email address.</span>
+
+
+
+       </span>
+
+       </label>
+
+
+       <label class="item item-input item-stacked-label">
+         <i class="icon ion-iphone"></i>
+       <span class="input-label">Mobile No :</span>
+       <input  type="text" name="mobile" placeholder="Enter Mobile Number" ng-model= "user.mobile" validate-mobile ng-pattern=" /^[978]{1}[0-9]{9}$/" required>
+       <span  ng-show="registartionForm.mobile.$dirty && registartionForm.mobile.$invalid">
+        <span style="color:red" ng-show ="registartionForm.mobile.$error.required"> Mobile no is required.</span>
+        <span ng-show ="registartionForm.mobile.$error.pattern  "  class="help-block"> Mobile no Should not be more then 10 digit Only.</span>
+       </span>
+
+       </label>
+
+       <label class="item item-input item-stacked-label" ng-class="{ 'has_error' : registartionForm.password.$invalid && !registartionForm.password.$pristine }">
+         <i class="icon ion-locked"></i>
+         <span class="input-label">Password :</span>
+
+    <input type="password" placeholder="Password" name="password" ng-model="user.password" ng-minlength="8" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
+
+      <p ng-show="registartionForm.password.$error.minlength" class="help-block">Your password is too short.</p>
+      <p ng-show="registartionForm.password.$error.pattern && !registartionForm.password.$error.minlength" class="help-block">Password must contain one lower and uppercase letter, and one non-alpha character.</p>
+</label>
+
+
+
+
+       <label class="item item-input item-stacked-label" ng-class="{ 'has_error' : (registartionForm.confirm_password.$invalid && !registartionForm.confirm_password.$pristine) }">
+
+         <i class="icon ion-locked"></i>
+         <span class="input-label">Confirm Password :</span>
+
+         <input type="password" placeholder="Confirm Password" name="confirm_password" ng-model-options="{ debounce: 500 }" ng-model="user.confirm_password"  valid-password-c="user.password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"  required>
+
+
+         <p ng-show="registartionForm.confirm_password.$error.minlength" class="help-block">Your password is too short.</p>
+         <p style="COLOR : RED" ng-show="registartionForm.confirm_password.$error.pattern && !registartionForm.confirm_password.$error.minlength" class="help-block">Password must contain one lower and uppercase letter, and one non-alpha character.</p>
+        <p  style="COLOR : RED"ng-show ="user.password !== user.confirm_password" >Must be equal!</p>
+
+</label>
+
+
+
+
+
+
+
+
+<div class="item items-divider">
+
+<button  type ="submit" value ="Register"   class="button icon icon-right button-calm">Register</button>
+<button class="button icon icon-right button-calm" ui-sref="login" name="button">Cancel</button>
+
+</div>
+
+</form>
+    </div>
+
+
+  </ion-content>
+</ion-view>
